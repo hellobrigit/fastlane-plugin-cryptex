@@ -83,7 +83,7 @@ module Fastlane
                                        env_name: "CRYPTEX_DIGEST",
                                        description: "Specify the Message Digest to use for crypt routines",
                                        is_string: true,
-                                       default_value: "md5")
+                                       default_value: "sha256")
         ]
       end
     end
