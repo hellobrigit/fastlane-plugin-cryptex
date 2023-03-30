@@ -86,6 +86,8 @@ module Fastlane
         command << "-in #{path.shellescape}"
         command << "-out #{tmpfile.shellescape}"
         command << "-a"
+        # This is set explictly because different installations of OpenSSL have different defaults
+        command << "-md sha256"
         command << "-d" unless encrypt
         command << "&> /dev/null" unless $verbose # to show show an error message is something goes wrong
         success = system(command.join(' '))
