@@ -68,7 +68,7 @@ module Fastlane
           c.syntax = "cryptex decrypt"
           c.description = "Decrypts the repository and keeps it on the filesystem"
           c.action do |args, options|
-            params = FastlaneCore::Configuration.create(Match::Options.available_options, options.__hash__)
+            params = FastlaneCore::Configuration.create(Cryptex::Options.available_options, options.__hash__)
             params.load_configuration_file("Cryptexfile")
             decrypted_repo = Cryptex::GitHelper.clone(params[:git_url], params[:shallow_clone], branch: params[:git_branch], digest: params[:digest])
             UI.success "Repo is at: '#{decrypted_repo}'"
