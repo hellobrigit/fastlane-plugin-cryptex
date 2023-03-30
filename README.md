@@ -4,6 +4,13 @@
 
 <img src='https://upload.wikimedia.org/wikipedia/commons/4/42/Cryptex.jpg'>
 
+## The Brigit Fork
+
+We forked this repo because the original is no longer maintained and we wanted to make a couple of changes. We have made the following changes:
+
+- Implement the `change_password` command to enable us to do so in the case that it is leaked.
+- Change the default value for the digest option. It was set to `sha256` in the `crypt` method itself and `md5` in the command's default options leading to different encryptions being used in different scenarios.
+
 ## About cryptex
 
 Manage files - crypted - in a git repository.
