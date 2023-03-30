@@ -56,7 +56,11 @@ module Fastlane
           c.syntax = 'cryptex change_password'
           c.description = 'Re-encrypt all files with a different password'
           c.action do |args, options|
-            puts "CHANGE PASSWORD"
+            params = FastlaneCore::Configuration.create(Cryptex::Options.available_options, options.__hash__)
+            params.load_configuration_file("Cryptexfile")
+
+            Cryptex::ChangePassword.update(params: params)
+            UI.success("Successfully changed the password. Make sure to update the password on all your clients and servers by running `fastlane match [environment]`")
           end
         end
 
